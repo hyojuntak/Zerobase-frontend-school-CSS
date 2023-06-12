@@ -1,0 +1,188 @@
+1. font-size
+> HTML 기본 16px 
+> px, em, rem, %로 사용
+
+2. font-style
+> default : normal 
+> italic, oblique 사용(기울인 글씨체)
+
+3. font-weight
+> 글자 굵기 
+> default : normal (400)
+> 상속가능
+>  bold (굵게 됨)
+
+.text{
+
+    font-size: 12px;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+<--------------------------------->
+
+
+4. font family
+> 기본 : 맑은 고딕
+> 사용하고 싶은 폰트를 나열 (사용하고 있는 브라우저에 깔려있어야함)
+> font-family : _,_,_...
+> 첫번째 폰트가 있다면 사용, 없다면 두번쨰 사용 이런 식
+
+.text{
+
+   font-family: 'Times New Roman', Times, serif;
+}
+
+<--------------------------------->
+
+5. line-height
+> 폰트 사이로 위,아래 여백을 말함
+> 폰트마다 다름 
+> default : normal 
+> 글꼴과 상관없이 동일한 높이를 사용할 수 있음 
+> px, em, 숫자로 표현 가능
+
+p{
+    font-size: 24px;
+    line-height: 2.0;
+}
+
+<--------------------------------->
+
+6. font 단축속성(shorthand)
+> style weight size family 순으로 작성
+> 위 태그들을 한 라인에 다 쓸 수 있음
+> 위 순서에서 하나의 속성값이 빠지면 inital값으로 돌아감 
+> font 속성 뒤에 까먹은 속성을 넣으면 inital에서 해당 속성으로 부여됨
+
+.text{
+
+    font : italic bold 20px 'Times New Roman', Times, serif;
+}
+
+<--------------------------------->
+
+7. font 텍스트 속성(text)
+
+letter-spacing
+>글자 사이의 간격을 조절
+>default : normal 
+>+- , pm,rm,px,% 사용 가능
+>letter-spacing 값의 절댓값이 너무 크면 스타일을 적용한 글을 읽기 힘들어짐
+
+word-spacing
+>단어와 단어 사이, 태그와 태그 사이의 거리를 설정
+>default : normal
+>+- , pm,rm,px,% 사용 가능
+>큰 절댓값의 word-spacing을 적용한 문장은 거의 읽기 힘들어짐
+
+.text{
+  word-spacing: 5px;
+}
+
+.default{
+    letter-spacing: 5px;
+}
+
+<--------------------------------->
+
+text-align
+> 글자 정렬
+> start, end, left, right, center, justify 등이 있음
+> 적용 안되는 경우 : span태그처럼 inline요소는 반영 안됨 (블락요소만됨)
+> 가로 길이가 어느 정도 존재하는 상태에서만 적용
+
+.text{  
+    text-align: center;
+}
+
+<--------------------------------->
+
+text-indent
+>블록에서 텍스트 줄 앞에 놓이는 빈 공간(들여쓰기)의 길이를 설정
+>인라인 요소는 적용 안됨 ex)span태그
+>%, px등
+
+.paragraph1{
+    text-indent: 30px;
+}
+
+<--------------------------------->
+
+text-decoration
+> 이 속성은 text-decoration-line (en-US), text-decoration-color (en-US), text-decoration-style (en-US), text-decoration-thickness (en-US)의 단축 속성
+> font와 달리 순서 상관 없이 해당 속성들을 사용할 수 있음
+
+1) text-decoration-line
+> 밑줄 또는 윗줄과 같이 요소의 텍스트에 사용되는 장식 종류를 설정
+
+2) none
+> 텍스트 장식을 생성하지 않음
+
+3) underline
+텍스트의 각 줄 아래에는 장식선이 있음
+
+4) overline
+텍스트의 각 줄 위에는 장식선이 있음
+
+5) line-through
+텍스트의 각 줄에는 가운데를 통과하는 장식선이 있음
+
+6) underline, overline, line-through 동시에 사용 가능 
+
+text-decoration-style
+> default값 : solid (일자) 
+
+span{
+    text-decoration: line-through red 3px wavy;
+    color: blue;
+}
+
+<--------------------------------->
+
+word-break
+> 스트가 콘텐츠 상자를 넘칠 때마다 줄 바꿈을 표시할지 여부를 설정
+> 기본값 : normal 
+> 속성으로 break-all, keep-all이 있음
+
+break-all
+> 오버플로를 방지하려면 두 문자 사이에 단어 분리를 삽입해야함
+> 글자가 상자 밖으로 넘어가지 않도록 문단 띄우기를 함 
+> 중국어/일본어/한국어 텍스트 제외
+
+keep-all
+> 문단 띄우기 하지 않음 (단, 띄워쓸 경우, 문단 띄우기를 함 하지만 텍스트가 상자를 넘어감) 
+> 중국어/일본어/한국어(CJK) 텍스트에는 단어 분리를 사용하면 안됨
+
+
+p[lang="en"]{
+    word-break: break-all;
+}
+
+p[lang="ko"]{
+    word-break: keep-all;
+}
+
+<--------------------------------->
+
+text-transform
+> 요소의 텍스트를 대문자로 표시하는 방법을 지정
+> 텍스트를 모두 대문자 또는 모두 소문자로 표시하거나 각 단어를 대문자로 표시하는 데 사용할 수 있음
+> uppercase : 대문자 변환
+> lowercase : 소문자 변환
+> capitalize : 단어의 첫 글자만 대문자로 표기
+
+container p:last-of-type{
+    
+    color: blue;
+    text-transform: uppercase;
+    text-transform: lowercase;
+    text-transform: capitalize;
+    
+}
+
+
+
+
+
+
