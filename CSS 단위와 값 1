@@ -1,0 +1,227 @@
+1. 상대길이 - em, rem
+
+1) em
+> 1em == 부모의 font-size
+> 부모를 찾아감
+
+2) rem
+> 1rem == root의 font-size
+> 브라우저 기본 폰트 사이즈가 root임
+> 직관적이고 관리가 편함
+
+ .parent{
+    color: blue;  
+    font-size: 2em;
+    
+ }
+ .child{
+    color: red;
+    font-size: 0.5rem;
+ }
+
+<--------------------------------->
+
+2. 상대길이 - vw, vh
+
+> 글꼴 상대길이 - em, rem
+> 뷰포트 백분율길이 - vw, vh
+> > 반응형 웹 브라우저를 만들때 사용 
+> 상대길이 <-> 절대길이 - px
+
+<--------------------------------->
+
+.vw {
+  width: 10vw;
+}
+
+.vh{
+  height : 20vh;
+
+<--------------------------------->
+
+3. 함수 표기법 - calc(), min(), max()
+
+1) calc()
+
+> CSS 속성의 값으로 계산식을 지정
+> +,-,*,/
+
+p {
+
+  padding: 2px;
+  display: block;
+  width: calc(100% - 1em);
+  
+}
+
+2) min()
+
+> 구분된 표현식 목록에서 가장 작은(가장 음수) 값을 CSS 속성 값으로 설정
+
+div{
+
+width: min(50vw, 200px); 
+
+}
+
+3) max()
+
+>쉼표로 구분된 표현식 목록에서 가장 큰(가장 양수인) 값을 CSS 속성 값으로 설정
+
+div{
+
+width: max(20vw, 400px); 
+
+}
+
+<--------------------------------->
+
+4. 크기 - width, height
+
+1) width 
+
+> 요소의 너비를 설정
+> max-width, min-width
+
+ #parent{
+ 
+    width: 150px;
+    min-width: 300px;
+    height: 300px;
+    background-color: lightcoral;
+    
+ }
+ 
+ #child{
+ 
+    width: 50%;
+    max-width : 100px;
+    height : 100px;
+    background-color: lightgreen;
+    
+ }
+
+2) height
+
+> 요소의 높이를 지정
+> max-hieght, min-height
+
+<--------------------------------->
+
+5. 여백 - margin
+
+> 요소의 네 방향 바깥 여백 영역을 설정
+> margin-top, margin-right, margin-bottom, margin-left
+> 자식 margin의 경우, 부모의 width를 따라감 
+
+ #child{
+ 
+    width: 50px;
+    height: 50px;
+    border: 5px solid tomato;
+    margin: 40px 20px 30px 10px;
+    
+}
+
+<--------------------------------->
+
+6. 여백 margin collapsing 
+
+마진 상쇄(margin collapsing)
+
+> 마진 상쇄, 마진 겹침, 마진 중복 등등으로 부름
+> 여러 블록(block)요소들의 위/아래 margin이 경우에 따라 큰 크기를 가진 margin으로 결합(상쇄)되는 현상
+> 아래의 3가지 경우에 일어남
+
+ 1) 인접 형제
+ 
+ > 두 형제 요소의 위/아래 여백이 만나 상쇄
+
+ 2) 부모-자식요소 간
+
+ > 부모 블록에 border,padding, inline content가 없어서 부모와 자식의 margin-top이 만나는 경우
+ > 부모 블록에 border, padding, inline content가 없고, 부모-자식을 분리할 height값이 지정되지 않아 부모와 
+ > 자식의 margin-bottom이 만나는 경우
+ 
+ 3) 빈 블록
+ > border, padding, cotent가 없고, height 또한 존재하지 않으면, 해당 블록의 margin-top과 margin-bottom이 상쇄됨
+ 
+
+#parent{
+
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    background-color: cadetblue;
+    border: 1px solid red;
+    
+}
+
+#child{
+
+    width: 30px;
+    height: 30px;
+    background-color: indianred;
+    margin-top: 40px;
+    
+}
+
+<--------------------------------->
+
+7. 여백 - padding
+
+> 네 면 모두 적용 
+padding: 1em;
+
+> 세로방향 | 가로방향
+padding: 5% 10%;
+
+> 위 | 가로방향 | 아래 
+padding: 1em 2em 2em;
+
+> 위 | 오른쪽 | 아래 | 왼쪽 
+padding: 5px 1em 0 2em;
+
+> 전역 값 
+padding: inherit;
+padding: initial;
+padding: unset; 
+
+> 자식 태그에 padding %를 쓸때, 부모요소의 width값의 %를 씀
+
+#parent{
+
+    width: 200px;
+    height: 200px;
+    background-color: skyblue;
+}
+
+#child{
+
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    padding: 10%;
+    
+}
+#grand-child{
+
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
